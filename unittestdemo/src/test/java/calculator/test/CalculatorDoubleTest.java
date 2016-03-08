@@ -38,7 +38,7 @@ public class CalculatorDoubleTest {
 	@Test
 	public void testDiv(){
 		assertEquals(3,cal.div(15, 5),tmp);
-		assertEquals(3,cal.div(-15, -5),tmp);
+		assertEquals(2,cal.div(-10, -5),tmp);
 	}
 	
 	@Test
