@@ -56,16 +56,16 @@ public class Mockito
         verify(msMock);
     }
 
-    @Test
-    public void sendingConnectionStatus() {
-
-        ArgumentCaptor<String> capturedServer = ArgumentCaptor.forClass(String.class);
-
-        assertEquals(1, messenger.testConnection(INVALID_SERVER));
-        assertEquals(INVALID_SERVER, capturedServer.getValue());
-
-        verify(msMock).checkConnection(capturedServer.capture());
-    }
+//    @Test
+//    public void sendingConnectionStatus() {
+//
+//        ArgumentCaptor<String> capturedServer = ArgumentCaptor.forClass(String.class);
+//
+//        assertEquals(1, messenger.testConnection(INVALID_SERVER));
+//        assertEquals(INVALID_SERVER, capturedServer.getValue());
+//
+//        verify(msMock).checkConnection(capturedServer.capture());
+//    }
 
     @Test
     public void sendingInvalidServer() throws MalformedRecipientException {
