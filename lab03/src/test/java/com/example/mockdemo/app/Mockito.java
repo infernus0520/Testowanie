@@ -70,18 +70,4 @@ public class Mockito
         verify(msMock);
     }
 
-    // Przechwytywanie parametrow
-//    @Test
-//    public void sendingConnectionStatus() {
-//
-//        Capture<String> capturedServer = EasyMock.newCapture();
-//
-//        when(msMock.checkConnection(capture(capturedServer))).thenReturn(
-//                ConnectionStatus.FAILURE);
-//
-//        assertEquals(1, messenger.testConnection(INVALID_SERVER));
-//        assertEquals(INVALID_SERVER, capturedServer.getValue());
-//
-//        verify(msMock);
-//    }
 }
