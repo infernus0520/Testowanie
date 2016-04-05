@@ -47,6 +47,16 @@ public class Mockito
     }
 
     @Test
+    public void sendingInvalidReceipient() throws MalformedRecipientException {
+
+        when(msMock.send(VALID_SERVER, INVALID_MESSAGE)).thenThrow(
+                new MalformedRecipientException());
+
+        assertEquals(2, messenger.sendMessage(VALID_SERVER, INVALID_MESSAGE));
+        verify(msMock);
+    }
+
+    @Test
     public void sendingInvalidServer() throws MalformedRecipientException {
 
         when(msMock.checkConnection(INVALID_SERVER)).thenReturn(
@@ -60,14 +70,6 @@ public class Mockito
         verify(msMock);
     }
 
-    @Test
-    public void sendingInvalidReceipient() throws MalformedRecipientException {
 
-        when(msMock.send(VALID_SERVER, INVALID_MESSAGE)).thenThrow(
-                new MalformedRecipientException());
-
-        assertEquals(2, messenger.sendMessage(VALID_SERVER, INVALID_MESSAGE));
-        verify(msMock);
-    }
 
 }
