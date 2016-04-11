@@ -6,6 +6,7 @@ import com.example.mockdemo.messenger.MessageService;
 import com.example.mockdemo.messenger.SendingStatus;
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.ArgumentCaptor;
 
 import static org.easymock.EasyMock.createMock;
 import static org.hamcrest.CoreMatchers.either;
@@ -56,16 +57,6 @@ public class Mockito
         verify(msMock);
     }
 
-    @Test
-    public void sendingConnectionStatus() {
-
-        ArgumentCaptor<String> capturedServer = ArgumentCaptor.forClass(String.class);
-
-        assertEquals(1, messenger.testConnection(INVALID_SERVER));
-        assertEquals(INVALID_SERVER, capturedServer.getValue());
-
-        verify(msMock).checkConnection(capturedServer.capture());
-    }
 
     @Test
     public void sendingInvalidServer() throws MalformedRecipientException {
