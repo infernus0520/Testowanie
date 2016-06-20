@@ -2,9 +2,9 @@ package com.example.shdemo.service;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +36,7 @@ public class SellingManagerTest {
 
 	private final String MODEL_2 = "Mondeo";
 	private final String MAKE_2 = "Ford";
+
 
 	@Test
 	public void addClientCheck() {
@@ -82,7 +83,7 @@ public class SellingManagerTest {
 		retrievedCar.setMake("SYRENA");
 
 	}
-
+	
 	@Test
 	public void sellCarCheck() {
 
@@ -109,9 +110,28 @@ public class SellingManagerTest {
 		assertEquals(MODEL_2, ownedCars.get(0).getModel());
 	}
 
-	// @Test -
+	@Test
 	public void disposeCarCheck() {
-		// Do it yourself
+		Car car = new Car();
+		car.setMake(MAKE_2);
+		car.setModel(MODEL_2);
+		
+		List<Car> cars = new ArrayList();
+		cars.add(car);
+		
+		Person person = new Person();
+		person.setFirstName(NAME_2);
+		person.setPin(PIN_2);
+		person.setCars(cars);
+		
+
+		sellingManager.addClient(person);
+			
+		Person retrievedPerson = sellingManager.findClientByPin(PIN_2);
+		assertEquals(1, retrievedPerson.getCars().size());
+		assertEquals(true, retrievedPerson.getCars().contains(car));
+		
+		
 	}
 
 }
