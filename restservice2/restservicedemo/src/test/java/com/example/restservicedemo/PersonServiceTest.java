@@ -54,7 +54,7 @@ public class PersonServiceTest {
 		
 	}
 	
-	
+	@Ignore
 	@Test
     public void getCarsById() {
 
@@ -111,7 +111,7 @@ public class PersonServiceTest {
 	
 	}
 	
-
+	@Ignore
 	@Test
 		public void getGame(){
 
